@@ -15,90 +15,73 @@ function writePassword() {
 
 }
 
-function generatePassword() {
-  var result = "";
-  // prompt user for number of password chars
-  var numCharsAmt = prompt("How long should the password be?");
-  // IF length is < 8 OR length is > 128
-  // alert password length must be from 8 to 128
-  if (numCharsAmt < 8 || numCharsAmt > 128) {
+
+function generatePassword(len) {
+
+  var password = [];
+  var character = [];
+  var crunch = true;
+  var answer = prompt("How long should the password be?");
+  if (answer < 8 || answer > 128) {
     alert("Password length must be from 8 to 128.");
-  } 
-  else {
-
-
-     for (var i = 0; i < numCharsAmt; i++) {
-      result = result + "a";
-  }}
-  if (numCharsAmt > 7 && numCharsAmt < 128) {
-    var lowChar = confirm("Would you like lowercase characters?");
-    if (lowChar === true) {
-      alert("ok"); var bigChar = confirm("Would you like UPPERCASE characters?");
-      if (lowChar === bigChar) {
-        alert("Ok"); var numChar = confirm("Would you like numbers as well?");
-        if (lowChar === bigChar === numChar) {
-          alert("Ok3y"); var specChar = confirm("Would you like special characters like ^%#?");
-          if (lowChar === bigChar === numChar === specChar) {
-            alert("Ok3y!");
-          }
-
-        }
-      }
-
-    }
+    // if (answer===true) string;
   }
+  var length = answer;
+
+  var stringUp = confirm("Include lowercase?");
+  if (stringUp === true) {
+    stringUp = "abcdefghijklmnopqrstuvwxyz";
+    // while (password.length < length) {
+    //   entity1 = Math.ceil(string.length * Math.random() * Math.random());
+    //   hold = string.charAt(entity1);
+    //   hold = (password.length % 2 == 0) ? (hold.toUpperCase()) : (hold);
+    //   character += hold;
+  } else { stringUp = false;}
+
+  var string = confirm("Include UPPERcase?")
+    if (string === true) {
+      string = "abcdefghijklmnopqrstuvwxyz";
+    }
+  var numb = confirm("Include numbers?");
+  if (numb === true) {
+    numb = "0123456789";
+  } else { numb = false; }
+
+  var punch = confirm("Include special characters?");
+  if (punch === true) {
+    punch = "!@#$%^&*()";
+  } else { punch = false; }
+
+  
+
+
+
+
+  while (password.length < length) {
+    entity1 = Math.ceil(stringUp.length * Math.random() * Math.random());
+    entity2 = Math.ceil(numb.length * Math.random() * Math.random());
+    entity3 = Math.ceil(punch.length * Math.random() * Math.random());
+    entity4 = Math.ceil(string.length * Math.random() * Math.random());
+    hold = stringUp.charAt(entity1);
+    hold = (password.length % 2 == 0) ? (hold.toUpperCase()) : (hold);
+    character += hold;
+    character += numb.charAt(entity2);
+    character += punch.charAt(entity3);
+    character += string.charAt(entity4);
+    password = character;
+  }
+  password = password.split([]).sort(function () { return 1 - Math.random() }).join([]);
+  return password.substr(0, len);
+
+  console.log(string);
+  console.log(numb);
+  console.log(punch);
+
 }
 
-function randomInt(max) {
-  return Math.floor(Math.random() * Math.floor(12));
-  console.log();
-}
-
-
-// Now for randomization!
-var randomizer = [,];
-
-var bigChar = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-const charsBig = bigChar.split('');{
-for (var i = 7; i < bigChar.length; i++)
-
-randomizer.push(charsBig[i]);
-}
-
-var lowChar = ("abcdefghijklmnopqrstuvwxyz");
-const charsLow = lowChar.split('');{
-for (var i = 7; i < lowChar.length; i++)
-
-randomizer.push(charsLow[i]);
-}
 
 
 
-var numChar = ("0123456789");
-const charsNum = numChar.split('');{
-for (var i = 7; i < numChar.length; i++)
-
-randomizer.push(charsNum[i]);
-}
-
-
-var specChar = ("!@#$%^&*()");
-const charsSpec = specChar.split('');{
-for (var i = 7; i < specChar.length; i++)
-
-randomizer.push(charsSpec[i]);
-
-}
-
-
-
-
-console.log(bigChar);
-console.log(lowChar);
-console.log(numChar);
-console.log(specChar);
-console.log(randomizer);
-console.log(numCharsAmt);
 
 // GIVEN I need a new, secure password
 // WHEN I click the button to generate a password
