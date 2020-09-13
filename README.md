@@ -1,6 +1,9 @@
 # password
 ### password generator
 
+*Currently* only working options for Password Generator are if each variable is **true**, then the "correct" password length and characters are shown.
+  *i.e. 'lowercase' uppercase' 'numeric' and 'special' characters.*
+
 The deployed application can be found https://dohmr.github.io/Passwordimizer/
 
 Repository can be found https://github.com/dohmr/Passwordimizer
